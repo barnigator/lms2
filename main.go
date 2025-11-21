@@ -1,7 +1,10 @@
-package lms2
+package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func main() {
-	fmt.Println("Привет, Мир!")
+	fmt.Println(math.Pow(0, 1))
 }
