@@ -34,12 +34,12 @@ func (c *Company) AddWorkerInfo(name, position string, salary, experience uint) 
 
 func (c *Company) SortWorkers() ([]string, error) {
 	sort.Slice(c.workers, func(i, j int) bool {
-		return c.workers[i].salary < c.workers[j].salary
+		return c.workers[i].salary*c.workers[i].experience*12 > c.workers[j].salary*c.workers[j].experience*12
 	})
 
 	res := make([]string, 0, len(c.workers))
 	for _, w := range c.workers {
-		str := fmt.Sprintf("%s — %d — %s", w.name, w.salary, w.position)
+		str := fmt.Sprintf("%s — %d — %s", w.name, w.salary*w.experience, w.position)
 		res = append(res, str)
 	}
 
